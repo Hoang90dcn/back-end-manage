@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="mt-4">
+        <div class="mb-4">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Thêm sản phẩm
+            </button>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Tên sản phẩm</th>
+                    <th scope="col">Gía bán</th>
+                    <th scope="col">Số lượng</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.price}}</td>
+                    <td>{{this.quantity}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+                {{#if pages}}
+                <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                </li>
+                {{/if}}
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Thêm sản phẩm</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="/product/create">
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <div class=" form-group row">
+                                        <label for="name" class="col-sm-2 col-form-label">Ten san pham</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="name">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="price" class="col-sm-2 col-form-label">Gía</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="price">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="type" class="col-sm-2 col-form-label">Loại sản phẩm</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="type">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="image" class="col-sm-2 col-form-label">Ảnh</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="image">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="quantity" class="col-sm-2 col-form-label">Số lượng</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="quantity">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="image" class="col-sm-2 col-form-label">Anh</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="form-control" name="image" onchange="handleFiles(event);">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <img id="image-demo" alt="" style="height: 200px; width: 200px; display: none;">
+                                </div>
+
+                            </div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../js/product.js"></script>
+</html>
