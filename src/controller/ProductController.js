@@ -4,7 +4,8 @@ class ProductController {
   index(req, res, next) {
     const page = req.query.page || 1;
     const itemInPage = req.query.item || 2;
-    console.log(page);
+    console.log(req.query.page);
+    console.log("page ",page);
     Products.find({}).sort({updatedAt: -1}).skip((page*itemInPage)-itemInPage).limit(itemInPage)
       .then((data) => {
         Products.countDocuments({}).then(count=>{
