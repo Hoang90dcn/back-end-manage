@@ -19,14 +19,18 @@ app.use(morgan('combined'));
 
 
 //handlebars template
-app.engine(
-  "hbs",
-  hbs.engine({
-    extname: "hbs",
-  })
-);
-app.set('view engine', 'hbs');
+// app.engine(
+//   "hbs",
+//   hbs.engine({
+//     extname: "hbs",
+//   })
+// );
+// app.set('view engine', 'hbs');
+// app.set('views', path.join(__dirname, 'resource/views'));
+
+// config esj
 app.set('views', path.join(__dirname, 'resource/views'));
+app.set('view engine', 'ejs');
 routes(app);
 
 console.log("PATH ", path.join(__dirname, "resource/views"));
