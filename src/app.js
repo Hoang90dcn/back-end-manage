@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-const hbs  = require('express-handlebars');
+// const hbs  = require('express-handlebars');
 const app = express()
 const path = require('path');
 const port = 3000
