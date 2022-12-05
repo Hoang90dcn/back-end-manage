@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(morgan('combined'));
 
 
-//handlebars template
+// handlebars template
 // app.engine(
 //   "hbs",
 //   hbs.engine({

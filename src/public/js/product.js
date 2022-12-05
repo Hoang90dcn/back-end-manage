@@ -5,3 +5,7 @@ function handleFiles(event)
    preview.src = src;
    preview.style.display = "block";
 }
+function deleteProducts()
+{
+   
+}

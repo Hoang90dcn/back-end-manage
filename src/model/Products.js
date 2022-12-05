@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const Products = new Schema({
+  id: String,
   name: String,
   price: String,
   type: String,
